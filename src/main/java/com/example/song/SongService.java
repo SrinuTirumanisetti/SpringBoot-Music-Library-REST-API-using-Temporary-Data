@@ -29,5 +29,9 @@ public class SongService implements SongRepository {
     // Don't modify the above code
 
     // Write your code here
-
+    @Override
+    public ArrayList<Song> getSongs() {
+        Collection<Song> songList = playlist.values();
+        return new ArrayList<>(songList);
+    }
 }
