@@ -29,9 +29,18 @@ public class SongService implements SongRepository {
     // Don't modify the above code
 
     // Write your code here
+    int uniqueId = 6;
     @Override
     public ArrayList<Song> getSongs() {
         Collection<Song> songList = playlist.values();
         return new ArrayList<>(songList);
+    }
+
+    @Override
+    public Song addSong(Song song){
+        song.setSongId(uniqueId);
+        playlist.put(uniqueId,song);
+        uniqueId+=1;
+        return song;
     }
 }
