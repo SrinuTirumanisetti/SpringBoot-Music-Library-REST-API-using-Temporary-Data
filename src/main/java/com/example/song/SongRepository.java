@@ -7,4 +7,5 @@ public interface SongRepository {
     Song addSong(Song song);
     Song getSong(int bookId);
     Song updateSong(Song song,int songId);
+    void deleteSong(int songId);
 }

@@ -75,4 +75,16 @@ public class SongService implements SongRepository {
         }
         return existingSong;
     }
+
+    @Override 
+    public void deleteSong(int songId){
+        Song song = playlist.get(songId);
+        if(song==null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND); 
+        }
+        else{
+            playlist.remove(songId);
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
+    }
 }
