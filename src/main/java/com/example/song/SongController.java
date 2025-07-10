@@ -32,4 +32,9 @@ public class SongController{
     public Song getSong(@PathVariable("songId") int songId){
         return service.getSong(songId);
     }
+
+    @PutMapping("/songs/{songId}")
+    public Song updateSong(@RequestBody Song song,@PathVariable("songId") int songId){
+        return service.updateSong(song,songId);
+    }
 }
