@@ -27,4 +27,9 @@ public class SongController{
     public Song addSong(@RequestBody Song song){
         return service.addSong(song);
     } 
+
+    @GetMapping("/songs/{songId}")
+    public Song getSong(@PathVariable("songId") int songId){
+        return service.getSong(songId);
+    }
 }

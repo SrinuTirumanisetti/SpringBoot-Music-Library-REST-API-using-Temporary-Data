@@ -13,6 +13,8 @@ import java.util.*;
 
 import com.example.song.Song;
 import com.example.song.SongRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 // Don't modify the below code
 public class SongService implements SongRepository {
@@ -41,6 +43,15 @@ public class SongService implements SongRepository {
         song.setSongId(uniqueId);
         playlist.put(uniqueId,song);
         uniqueId+=1;
+        return song;
+    }
+
+    @Override
+    public Song getSong(int songId){
+        Song song = playlist.get(songId);
+        if(song==null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
         return song;
     }
 }
